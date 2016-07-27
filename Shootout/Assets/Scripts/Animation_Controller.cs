@@ -8,6 +8,8 @@ public class Animation_Controller : MonoBehaviour
 
     CharacterController controller;
     public float rotationDamping = 20f;
+    public string horizontalAxis;
+    public string verticalAxis;
 
     // Use this for initialization
     void Start ()
@@ -20,9 +22,8 @@ public class Animation_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //float move = Input.GetAxis("Vertical");
-        float moveV = Input.GetAxis("Vertical");
-        float moveH = Input.GetAxis("Horizontal");
+        float moveV = Input.GetAxis(verticalAxis);
+        float moveH = Input.GetAxis(horizontalAxis);
 
         Vector3 movement = new Vector3(moveH, 0.0f, moveV);
         movement *= speed;
@@ -30,8 +31,7 @@ public class Animation_Controller : MonoBehaviour
         Rigidbody body = GetComponent<Rigidbody>();
         
 
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) 
-            || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        if (moveV != 0 || moveH != 0)
         {
             anim.Play();
         }
