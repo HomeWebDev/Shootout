@@ -10,6 +10,13 @@ public class Animation_Controller : MonoBehaviour
     public float rotationDamping = 20f;
     public string horizontalAxis;
     public string verticalAxis;
+    public string fireButton;
+
+    public float fireRate;
+    private float nextFire;
+
+    public Transform shotSpawn;
+    public GameObject shot;
 
     // Use this for initialization
     void Start ()
@@ -22,6 +29,13 @@ public class Animation_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetButton(fireButton) & Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
+
+
         float moveV = Input.GetAxis(verticalAxis);
         float moveH = Input.GetAxis(horizontalAxis);
 

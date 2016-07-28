@@ -101,13 +101,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 39694490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b74672e0639dc246b5f48629f2dc7a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3ce67cf8cced742ad440a962fdff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rotationDamping: 10
   horizontalAxis: Horizontal4
   verticalAxis: Vertical4
+  fireButton: Fire4
+  fireRate: 0.25
+  shotSpawn: {fileID: 788943961}
+  shot: {fileID: 135838, guid: 35ba1152590fb6a4da6f2ce227c55763, type: 2}
 --- !u!143 &39694493
 CharacterController:
   m_ObjectHideFlags: 0
@@ -168,13 +172,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 371880647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b74672e0639dc246b5f48629f2dc7a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3ce67cf8cced742ad440a962fdff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rotationDamping: 10
   horizontalAxis: Horizontal1
   verticalAxis: Vertical1
+  fireButton: Fire1
+  fireRate: 0.25
+  shotSpawn: {fileID: 1673178307}
+  shot: {fileID: 135838, guid: 35ba1152590fb6a4da6f2ce227c55763, type: 2}
 --- !u!143 &371880650
 CharacterController:
   m_ObjectHideFlags: 0
@@ -444,6 +452,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &579255153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 579255154}
+  m_Layer: 0
+  m_Name: ShotSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579255154
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 579255153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1297250576}
+  m_RootOrder: 0
 --- !u!1 &671802051
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +574,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &788943960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 788943961}
+  m_Layer: 0
+  m_Name: ShotSpawn4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788943961
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788943960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 39694491}
+  m_RootOrder: 2
 --- !u!1 &859505426 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
@@ -554,13 +618,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 859505426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b74672e0639dc246b5f48629f2dc7a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3ce67cf8cced742ad440a962fdff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rotationDamping: 10
   horizontalAxis: Horizontal3
   verticalAxis: Vertical3
+  fireButton: Fire3
+  fireRate: 0.25
+  shotSpawn: {fileID: 2115367511}
+  shot: {fileID: 135838, guid: 35ba1152590fb6a4da6f2ce227c55763, type: 2}
 --- !u!143 &859505429
 CharacterController:
   m_ObjectHideFlags: 0
@@ -940,6 +1008,14 @@ Prefab:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
   m_IsPrefabParent: 0
@@ -959,13 +1035,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297250577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b74672e0639dc246b5f48629f2dc7a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3ce67cf8cced742ad440a962fdff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rotationDamping: 10
   horizontalAxis: Horizontal2
   verticalAxis: Vertical2
+  fireButton: Fire2
+  fireRate: 0.25
+  shotSpawn: {fileID: 579255154}
+  shot: {fileID: 135838, guid: 35ba1152590fb6a4da6f2ce227c55763, type: 2}
 --- !u!65 &1297250579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1086,6 +1166,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353530176}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1673178306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1673178307}
+  m_Layer: 0
+  m_Name: ShotSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1673178307
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673178306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 371880648}
+  m_RootOrder: 2
 --- !u!1 &1724695013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,3 +1302,31 @@ Transform:
   - {fileID: 1276422609}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &2115367510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2115367511}
+  m_Layer: 0
+  m_Name: ShotSpawn3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115367511
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115367510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 859505427}
+  m_RootOrder: 2
