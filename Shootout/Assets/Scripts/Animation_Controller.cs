@@ -33,6 +33,13 @@ public class Animation_Controller : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
+            shot.tag = this.tag;
+
+            //Transform bullet = Instantiate(bulletPrefab) as Transform;
+            //Physics.IgnoreCollision(shot.GetComponent<Collider>(), this.gameObject.GetComponent<Collider>(), false);
+
+            //shot.GetComponent<BulletScript>().IgnoreCollider(GetComponent<Collider>());
         }
 
 
