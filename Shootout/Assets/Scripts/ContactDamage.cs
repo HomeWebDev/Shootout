@@ -19,6 +19,12 @@ public class ContactDamage : MonoBehaviour {
         {
             return;
         }
+        //else
+        //{
+        //    print("Other: " + other.tag.ToString() + " This: " + this.tag.ToString());
+        //}
+
+
 
         //Destroy(other.gameObject);
 

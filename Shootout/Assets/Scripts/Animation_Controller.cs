@@ -36,9 +36,13 @@ public class Animation_Controller : MonoBehaviour
         if (Input.GetButton(fireButton) & Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 
             shot.tag = this.tag;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
+            
+
+            //print("Shot: " + shot.tag.ToString());
 
             //Transform bullet = Instantiate(bulletPrefab) as Transform;
             //Physics.IgnoreCollision(shot.GetComponent<Collider>(), this.gameObject.GetComponent<Collider>(), false);
@@ -80,24 +84,24 @@ public class Animation_Controller : MonoBehaviour
 
         //print("updated");
 
-        if (firstTime)
-        {
-            movement = new Vector3(0.001f, 0.0f, 0.0f);
+        //if (firstTime)
+        //{
+        //    movement = new Vector3(0.001f, 0.0f, 0.0f);
 
-            controller.Move(movement * Time.deltaTime);
+        //    controller.Move(movement * Time.deltaTime);
 
-            if (movement != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation,
-                                     Quaternion.LookRotation(movement),
-                                     Time.deltaTime * rotationDamping);
-            }
-            initLoops--;
+        //    if (movement != Vector3.zero)
+        //    {
+        //        transform.rotation = Quaternion.Slerp(transform.rotation,
+        //                             Quaternion.LookRotation(movement),
+        //                             Time.deltaTime * rotationDamping);
+        //    }
+        //    initLoops--;
 
-            if (initLoops < 1)
-            {
-                firstTime = false;
-            }
-        }
+        //    if (initLoops < 1)
+        //    {
+        //        firstTime = false;
+        //    }
+        //}
     }
 }
