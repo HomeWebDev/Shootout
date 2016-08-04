@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - Player3
   - Player4
+  - Boundary
+  - Player1HealthSlider
   layers:
   - Default
   - TransparentFX

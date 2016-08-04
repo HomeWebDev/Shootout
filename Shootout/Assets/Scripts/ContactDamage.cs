@@ -31,7 +31,7 @@ public class ContactDamage : MonoBehaviour {
         //print("Other: " + other.ToString());
 
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        playerHealth.TakeDamage(10);
+        playerHealth.TakeDamage(other, 10);
 
         
 

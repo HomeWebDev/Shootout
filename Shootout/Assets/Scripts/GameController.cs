@@ -22,10 +22,10 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        player1Clone = Instantiate(player1, new Vector3(9, 0, -9), Quaternion.identity) as GameObject;
-        player2Clone = Instantiate(player2, new Vector3(-9, 0, 9), Quaternion.identity) as GameObject;
-        player3Clone = Instantiate(player3, new Vector3(-9, 0, -9), Quaternion.identity) as GameObject;
-        player4Clone = Instantiate(player4, new Vector3(9, 0, 9),  Quaternion.identity) as GameObject;
+        //player1Clone = Instantiate(player1, new Vector3(9, 0, -9), Quaternion.identity) as GameObject;
+        //player2Clone = Instantiate(player2, new Vector3(-9, 0, 9), Quaternion.identity) as GameObject;
+        //player3Clone = Instantiate(player3, new Vector3(-9, 0, -9), Quaternion.identity) as GameObject;
+        //player4Clone = Instantiate(player4, new Vector3(9, 0, 9),  Quaternion.identity) as GameObject;
 
         //player1Health.health = player1HealthValue;
 

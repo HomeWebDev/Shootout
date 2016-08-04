@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
     public int health = 100;
+
+    public Slider healthSlider;
 
     //private Animation_Controller playerMovement;
 
@@ -23,12 +26,18 @@ public class PlayerHealth : MonoBehaviour {
         health = 100;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(Collider other, int amount)
     {
         // Decrement the player's health by amount.
         health -= amount;
 
+        healthSlider.value = health;
 
+
+        //PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        //other.GetComponent<>
+
+        
 
         //print("Health reduced by: " + amount);
     }

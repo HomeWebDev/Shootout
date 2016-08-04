@@ -2132,6 +2132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthSlider: {fileID: 11470376, guid: c0597773e52e86c4aaed10c8fb87581b, type: 2}
 --- !u!114 &11448516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2149,7 +2150,6 @@ MonoBehaviour:
   verticalAxis: Vertical1
   fireButton: Fire1
   fireRate: 0.25
-  health: 100
   shotSpawn: {fileID: 432064}
   shot: {fileID: 135838, guid: 35ba1152590fb6a4da6f2ce227c55763, type: 2}
 --- !u!137 &13737528
