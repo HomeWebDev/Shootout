@@ -33,6 +33,11 @@ public class PlayerHealth : MonoBehaviour {
 
         healthSlider.value = health;
 
+        if (health <= 0)
+        {
+            PlayerKilled();
+        }
+
 
         //PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
         //other.GetComponent<>
@@ -40,6 +45,13 @@ public class PlayerHealth : MonoBehaviour {
         
 
         //print("Health reduced by: " + amount);
+    }
+
+    private void PlayerKilled()
+    {
+        //Destroy(gameObject);
+
+        gameObject.SetActive(false);
     }
 
     //void Awake()
