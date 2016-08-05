@@ -35,4 +35,9 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void KillPlayer(int playerID)
+    {
+        print("Player killed:" + Time.time);
+    }
 }

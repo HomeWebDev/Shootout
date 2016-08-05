@@ -24,6 +24,8 @@ public class PlayerHealth : MonoBehaviour {
     {
         //Reset health
         health = 100;
+
+        healthSlider.value = health;
     }
 
     public void TakeDamage(Collider other, int amount)
@@ -51,7 +53,56 @@ public class PlayerHealth : MonoBehaviour {
     {
         //Destroy(gameObject);
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+
+
+        //GameController gameController = GetComponent<GameController>();
+
+
+
+        //gameController.KillPlayer(2);
+
+
+        StartCoroutine(Respawn());
+    }
+
+
+    IEnumerator Respawn()
+    {
+
+        //print("Set inactive:" + Time.time);
+        //gameObject.SetActive(false);
+
+        SkinnedMeshRenderer render = gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+
+        render.enabled = false;
+        gameObject.transform.position = new Vector3(99, 0, -99);
+
+        yield return new WaitForSeconds(5);
+
+        //print("Set active:" + Time.time);
+        //gameObject.SetActive(true);
+
+        ResetHealth();
+
+        if (gameObject.tag == "Player1")
+        {
+            gameObject.transform.position = new Vector3(9, 0, -9);
+        }
+        if (gameObject.tag == "Player2")
+        {
+            gameObject.transform.position = new Vector3(-9, 0, 9);
+        }
+        if (gameObject.tag == "Player3")
+        {
+            gameObject.transform.position = new Vector3(-9, 0, -9);
+        }
+        if (gameObject.tag == "Player4")
+        {
+            gameObject.transform.position = new Vector3(9, 0, 9);
+        }
+
+        render.enabled = true;
     }
 
     //void Awake()
