@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/scene3players.unity
   - enabled: 1
     path: Assets/Scenes/scene4players.unity
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity

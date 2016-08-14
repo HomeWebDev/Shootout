@@ -38,6 +38,14 @@ public class LoadOnClick : MonoBehaviour
         {
             GameController.nrOfPlayers = 2;
         }
+        if (sceneName == "IntroScene")
+        {
+            //Reset number of kills
+            GameController.Player1Kills = 0;
+            GameController.Player2Kills = 0;
+            GameController.Player3Kills = 0;
+            GameController.Player4Kills = 0;
+        }
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 

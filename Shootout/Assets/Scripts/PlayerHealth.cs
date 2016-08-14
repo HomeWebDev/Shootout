@@ -58,6 +58,16 @@ public class PlayerHealth : MonoBehaviour {
                 GameController.Player4Kills++;
             }
 
+            //Game ends when first player has 5 kills
+            if (GameController.Player1Kills > 4 | GameController.Player2Kills > 4 | GameController.Player3Kills > 4 | GameController.Player4Kills > 4)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("ResultScene");
+
+                //Update score texts
+                UpdateScoreTexts();
+
+            }
+
             //print("Number of kills: " + GameController.Player1Kills);
         }
 
@@ -69,6 +79,41 @@ public class PlayerHealth : MonoBehaviour {
 
         //print("Health reduced by: " + amount);
     }
+
+    private void UpdateScoreTexts()
+    {
+        if (GameController.nrOfPlayers == 2)
+        {
+            if (GameController.Player2Kills > GameController.Player1Kills)
+            {
+                GameObject firstPlayerTextGameObject = GameObject.Find("FirstPlayerText");
+                UnityEngine.UI.Text firstPlayerText = firstPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+                firstPlayerText.text = "1. Player 2 with " + GameController.Player2Kills + " kills";
+
+                GameObject secondPlayerTextGameObject = GameObject.Find("SecondPlayerText");
+                UnityEngine.UI.Text secondPlayerText = secondPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+                secondPlayerText.text = "2. Player 1 with " + GameController.Player1Kills + " kills";
+            }
+            else
+            {
+                GameObject firstPlayerTextGameObject = GameObject.Find("FirstPlayerText");
+                UnityEngine.UI.Text firstPlayerText = firstPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+                firstPlayerText.text = "2. Player 1 with " + GameController.Player1Kills + " kills";
+
+                GameObject secondPlayerTextGameObject = GameObject.Find("SecondPlayerText");
+                UnityEngine.UI.Text secondPlayerText = secondPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+                firstPlayerText.text = "1. Player 2 with " + GameController.Player2Kills + " kills";
+            }
+            GameObject thirdPlayerTextGameObject = GameObject.Find("ThirdPlayerText");
+            UnityEngine.UI.Text thirdPlayerText = thirdPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+            thirdPlayerText.text = "";
+
+            GameObject fourthPlayerTextGameObject = GameObject.Find("FourthPlayerText");
+            UnityEngine.UI.Text fourthPlayerText = fourthPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
+            fourthPlayerText.text = "";
+        }
+    }
+
 
     private void PlayerKilled()
     {
