@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour {
         healthSlider.value = health;
     }
 
-    public void TakeDamage(Collider other, int amount)
+    public void TakeDamage(Collider other, int amount, GameObject bullet)
     {
         // Decrement the player's health by amount.
         health -= amount;
@@ -38,6 +38,27 @@ public class PlayerHealth : MonoBehaviour {
         if (health <= 0)
         {
             PlayerKilled();
+
+            //print(bullet.tag);
+
+            if (bullet.tag == "Player1")
+            {
+                GameController.Player1Kills++;
+            }
+            if (bullet.tag == "Player2")
+            {
+                GameController.Player2Kills++;
+            }
+            if (bullet.tag == "Player3")
+            {
+                GameController.Player3Kills++;
+            }
+            if (bullet.tag == "Player4")
+            {
+                GameController.Player4Kills++;
+            }
+
+            //print("Number of kills: " + GameController.Player1Kills);
         }
 
 

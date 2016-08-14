@@ -33,7 +33,9 @@ public class Animation_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButton(fireButton) & Time.time > nextFire)
+        PlayerHealth playerHealth = this.GetComponent<PlayerHealth>();
+
+        if (Input.GetButton(fireButton) & Time.time > nextFire & playerHealth.health > 0)
         {
             nextFire = Time.time + fireRate;
 

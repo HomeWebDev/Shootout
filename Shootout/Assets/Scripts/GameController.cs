@@ -3,6 +3,13 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
+    public static int Player1Kills;
+    public static int Player2Kills;
+    public static int Player3Kills;
+    public static int Player4Kills;
+
+    public static int nrOfPlayers;
+
     public int player1HealthValue;
     public int player2HealthValue;
     public int player3HealthValue;
@@ -19,6 +26,11 @@ public class GameController : MonoBehaviour {
 
     private PlayerHealth player1Health;
 
+    private UnityEngine.UI.Text player1KillsText;
+    private UnityEngine.UI.Text player2KillsText;
+    private UnityEngine.UI.Text player3KillsText;
+    private UnityEngine.UI.Text player4KillsText;
+
     // Use this for initialization
     void Start () {
 
@@ -29,12 +41,49 @@ public class GameController : MonoBehaviour {
 
         //player1Health.health = player1HealthValue;
 
+        //guiText = GameObject.Find("GUI_TEXT_NAME").guiText;
+
+        //guiText = GetComponent<GUIText>;
+
+        GameObject player1KillsTextGameObject = GameObject.Find("Player1Kills");
+        player1KillsText = player1KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
+
+        GameObject player2KillsTextGameObject = GameObject.Find("Player2Kills");
+        player2KillsText = player2KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
+
+        if (nrOfPlayers > 2)
+        {
+            GameObject player3KillsTextGameObject = GameObject.Find("Player3Kills");
+            player3KillsText = player3KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
+        }
+
+        if (nrOfPlayers > 3)
+        {
+            GameObject player4KillsTextGameObject = GameObject.Find("Player4Kills");
+            player4KillsText = player4KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
+        }
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        UpdateKillCount();
+    }
+
+    private void UpdateKillCount()
+    {
+        player1KillsText.text = "Kills: " + Player1Kills;
+        player2KillsText.text = "Kills: " + Player2Kills;
+        if (nrOfPlayers > 2)
+        {
+            player3KillsText.text = "Kills: " + Player3Kills;
+
+        }
+        if (nrOfPlayers > 3)
+        {
+            player4KillsText.text = "Kills: " + Player4Kills;
+        }
+    }
 
     public void KillPlayer(int playerID)
     {

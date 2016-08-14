@@ -26,7 +26,22 @@ public class LoadOnClick : MonoBehaviour
     {
         //print("test2");
 
+        if (sceneName == "scene4players")
+        {
+            GameController.nrOfPlayers = 4;
+        }
+        if (sceneName == "scene3players")
+        {
+            GameController.nrOfPlayers = 3;
+        }
+        if (sceneName == "scene2players")
+        {
+            GameController.nrOfPlayers = 2;
+        }
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
+
 
         //UnityEngine.SceneManagement.SceneManager.LoadScene("scene1");
     }
