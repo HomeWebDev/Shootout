@@ -45,9 +45,15 @@ public class LoadOnClick : MonoBehaviour
             GameController.Player2Kills = 0;
             GameController.Player3Kills = 0;
             GameController.Player4Kills = 0;
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("IntroScene");
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("scene4players");
         }
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
 
 
 

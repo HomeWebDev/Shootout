@@ -56,11 +56,33 @@ public class GameController : MonoBehaviour {
             GameObject player3KillsTextGameObject = GameObject.Find("Player3Kills");
             player3KillsText = player3KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
         }
+        else
+        {
+            //Disable player 3 and 4
+            GameObject player3GameObject = GameObject.Find("Player3");
+            player3GameObject.SetActive(false);
+            GameObject player4GameObject = GameObject.Find("Player4");
+            player4GameObject.SetActive(false);
+
+            GameObject rightTopPanelGameObject = GameObject.Find("RightTopPanel");
+            rightTopPanelGameObject.SetActive(false);
+            GameObject leftBottomPanelGameObject = GameObject.Find("LeftBottomPanel");
+            leftBottomPanelGameObject.SetActive(false);
+        }
 
         if (nrOfPlayers > 3)
         {
             GameObject player4KillsTextGameObject = GameObject.Find("Player4Kills");
             player4KillsText = player4KillsTextGameObject.GetComponent<UnityEngine.UI.Text>();
+        }
+        else
+        {
+            //Disable player 4
+            GameObject player4GameObject = GameObject.Find("Player4");
+            player4GameObject.SetActive(false);
+
+            GameObject leftBottomPanelGameObject = GameObject.Find("LeftBottomPanel");
+            leftBottomPanelGameObject.SetActive(false);
         }
 
     }
