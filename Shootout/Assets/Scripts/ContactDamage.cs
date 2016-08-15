@@ -10,10 +10,21 @@ public class ContactDamage : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+
+        //if (other.tag == "ItemCrate")
+        //{
+        //    print("crate");
+        //}
+
         if (other.tag == "Boundary")
         {
             return;
         }
+
+        //if (other.tag == "ItemCrate")
+        //{
+        //    return;
+        //}
 
         if (other.tag == this.tag)
         {
@@ -36,10 +47,21 @@ public class ContactDamage : MonoBehaviour {
 
         //print("Other: " + other.ToString());
 
-        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        playerHealth.TakeDamage(other, 10, gameObject);
+        if (other.tag == "ItemCrate")
+        {
+            print("crate");
+            
+            //Destroy(other.gameObject);
+            CrateController crateDamage = other.GetComponent<CrateController>();
+            crateDamage.TakeDamage(other, 1);
+        }
+        else
+        {
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(other, 10, gameObject);
+        }
 
-        
+
 
         //playerMovement = GetComponent<Animation_Controller>();
 

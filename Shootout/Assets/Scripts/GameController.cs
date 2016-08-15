@@ -58,16 +58,12 @@ public class GameController : MonoBehaviour {
         }
         else
         {
-            //Disable player 3 and 4
+            //Disable player 3
             GameObject player3GameObject = GameObject.Find("Player3");
             player3GameObject.SetActive(false);
-            GameObject player4GameObject = GameObject.Find("Player4");
-            player4GameObject.SetActive(false);
 
             GameObject rightTopPanelGameObject = GameObject.Find("RightTopPanel");
             rightTopPanelGameObject.SetActive(false);
-            GameObject leftBottomPanelGameObject = GameObject.Find("LeftBottomPanel");
-            leftBottomPanelGameObject.SetActive(false);
         }
 
         if (nrOfPlayers > 3)
