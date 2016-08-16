@@ -13,10 +13,12 @@ public class Animation_Controller : MonoBehaviour
     public string fireButton;
 
     public float fireRate;
+    private float DefaultFirerate = 0.25f;
     private float nextFire;
 
     public Transform shotSpawn;
     public GameObject shot;
+    public GameObject weapon;
 
     private bool firstTime = true;
     private int initLoops = 4;
@@ -33,6 +35,21 @@ public class Animation_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if( weapon!= null)
+        {
+            if (weapon.tag == "AKM")
+            {
+                fireRate = DefaultFirerate / 2;
+            }
+            else
+            {
+                fireRate = DefaultFirerate;
+            }
+        }
+        else
+        {
+            fireRate = DefaultFirerate;
+        }
         PlayerHealth playerHealth = this.GetComponent<PlayerHealth>();
 
         if (Input.GetButton(fireButton) & Time.time > nextFire & playerHealth.health > 0)

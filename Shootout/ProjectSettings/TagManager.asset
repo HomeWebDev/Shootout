@@ -11,6 +11,7 @@ TagManager:
   - Boundary
   - Player1HealthSlider
   - ItemCrate
+  - AKM
   layers:
   - Default
   - TransparentFX

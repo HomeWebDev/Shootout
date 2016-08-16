@@ -28,8 +28,13 @@ public class CrateController : MonoBehaviour
         if (health <= 0)
         {
             //Destroy(gameObject);
-            CrateItem.tag = this.tag;
-            Instantiate(CrateItem, gameObject.transform.position, ItemSpawn.rotation);
+            CrateItem.tag = "AKM";
+            CrateItem = Instantiate(CrateItem, gameObject.transform.position, ItemSpawn.rotation) as GameObject;
+            //CrateItem.AddComponent<BoxCollider>();
+            CrateItem.AddComponent<AKMPickUp>();
+            CrateItem.AddComponent<BoxCollider>();
+            CrateItem.GetComponent<BoxCollider>().isTrigger = true;
+            //CrateItem.AddComponent<BoundaryDestroy>();
             Destroy(gameObject);
         }
 

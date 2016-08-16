@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () {
 	
 	}
-
+    
     public void ResetHealth()
     {
         //Reset health

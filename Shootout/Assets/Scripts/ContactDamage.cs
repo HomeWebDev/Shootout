@@ -55,6 +55,11 @@ public class ContactDamage : MonoBehaviour {
             CrateController crateDamage = other.GetComponent<CrateController>();
             crateDamage.TakeDamage(other, 1);
         }
+        else if (other.tag == "AKM")
+        {
+            Destroy(gameObject);
+            return;
+        }
         else
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
