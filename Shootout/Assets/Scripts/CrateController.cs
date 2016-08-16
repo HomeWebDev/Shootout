@@ -29,7 +29,7 @@ public class CrateController : MonoBehaviour
         {
             //Destroy(gameObject);
             CrateItem.tag = "AKM";
-            Vector3 onFLoorPosition = gameObject.transform.position + new Vector3(0, -1.2f, 0);
+            Vector3 onFLoorPosition = gameObject.transform.position + new Vector3(0, -0.5f, 0);
             CrateItem = Instantiate(CrateItem, onFLoorPosition, ItemSpawn.rotation) as GameObject;
             //CrateItem.AddComponent<BoxCollider>();
             CrateItem.AddComponent<AKMPickUp>();

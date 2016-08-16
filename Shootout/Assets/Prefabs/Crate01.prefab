@@ -1,18 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &162760
+--- !u!1 &173914
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 491808}
-  - 33: {fileID: 3375544}
-  - 65: {fileID: 6579352}
-  - 23: {fileID: 2314422}
-  - 114: {fileID: 11438784}
-  - 114: {fileID: 11494024}
+  - 4: {fileID: 442612}
+  - 33: {fileID: 3373766}
+  - 65: {fileID: 6534236}
+  - 23: {fileID: 2316660}
+  - 114: {fileID: 11451738}
+  - 114: {fileID: 11442448}
   m_Layer: 0
   m_Name: Crate01
   m_TagString: ItemCrate
@@ -20,25 +20,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &491808
+--- !u!4 &442612
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
+  m_GameObject: {fileID: 173914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9497855, y: 0.78793144, z: 0.5066557}
+  m_LocalPosition: {x: -1.9497855, y: 0, z: 0.5066557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2314422
+--- !u!23 &2316660
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
+  m_GameObject: {fileID: 173914}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,50 +59,50 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3375544
+--- !u!33 &3373766
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
+  m_GameObject: {fileID: 173914}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6579352
+--- !u!65 &6534236
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
+  m_GameObject: {fileID: 173914}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11438784
+--- !u!114 &11442448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224c6a5e7505166489432db1a5004e41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11494024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162760}
+  m_GameObject: {fileID: 173914}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fea9b6a36c43b9543a5bdcb483e8d131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  ItemSpawn: {fileID: 491808}
+  ItemSpawn: {fileID: 414534, guid: 77e598974fdcc5847be06e8be8ad914d, type: 2}
   CrateItem: {fileID: 100002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
+--- !u!114 &11451738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224c6a5e7505166489432db1a5004e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -112,5 +112,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 162760}
+  m_RootGameObject: {fileID: 173914}
   m_IsPrefabParent: 1
