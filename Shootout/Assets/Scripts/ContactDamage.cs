@@ -47,9 +47,9 @@ public class ContactDamage : MonoBehaviour {
 
         //print("Other: " + other.ToString());
 
-        if (other.tag == "ItemCrate")
+        if (other.tag == "ItemCrate" | other.tag == "Crate")
         {
-            print("crate");
+            //print("crate");
             
             //Destroy(other.gameObject);
             CrateController crateDamage = other.GetComponent<CrateController>();

@@ -12,6 +12,7 @@ TagManager:
   - Player1HealthSlider
   - ItemCrate
   - AKM
+  - Crate
   layers:
   - Default
   - TransparentFX

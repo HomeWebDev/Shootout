@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -30,6 +31,12 @@ public class GameController : MonoBehaviour {
     private UnityEngine.UI.Text player2KillsText;
     private UnityEngine.UI.Text player3KillsText;
     private UnityEngine.UI.Text player4KillsText;
+
+    public GameObject crate1;
+    public GameObject crate2;
+    public GameObject crate3;
+    public GameObject crate4;
+    public Transform crateTransform;
 
     // Use this for initialization
     void Start () {
@@ -81,10 +88,72 @@ public class GameController : MonoBehaviour {
             leftBottomPanelGameObject.SetActive(false);
         }
 
+        //Spawn random crates over playing field
+        SpawnRandomCrates();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void SpawnRandomCrates()
+    {
+        
+        //crate1.tag = "ItemCrate";
+        //Vector3 onFLoorPosition = gameObject.transform.position + new Vector3(0, -0.5f, 0);
+
+        List<Vector3> vectorList = new List<Vector3>();
+
+        for (int i = 0; i < 100; i++)
+        {
+            int randx;
+            int randz;
+
+            while (true)
+            {
+                randx = Random.Range(-14, 14);
+                randz = Random.Range(-14, 14);
+
+                if (!(Mathf.Abs(randx) > 8 & Mathf.Abs(randz) > 8))
+                {
+                    break;
+                }
+            }
+
+            Vector3 tempVector = new Vector3(randx, 0.5f, randz);
+            vectorList.Add(tempVector);
+        }
+
+        foreach (Vector3 position in vectorList)
+        {
+            int type = Random.Range(0, 100);
+            if (type < 32)
+            {
+                GameObject crate = Instantiate(crate1, position, crateTransform.rotation) as GameObject;
+            }
+            else if (type < 64)
+            {
+                GameObject crate = Instantiate(crate3, position, crateTransform.rotation) as GameObject;
+            }
+            else if (type < 96)
+            {
+                GameObject crate = Instantiate(crate4, position, crateTransform.rotation) as GameObject;
+            }
+            else
+            {
+                GameObject crate = Instantiate(crate2, position, crateTransform.rotation) as GameObject;
+            }
+        }
+
+        //Vector3 onFLoorPosition1 = new Vector3(5, 0.5f, 5);
+        //Vector3 onFLoorPosition2 = new Vector3(-5, 0.5f, -5);
+
+        //crate = Instantiate(crate, onFLoorPosition1, crateTransform.rotation) as GameObject;
+        //crate = Instantiate(crate, onFLoorPosition2, crateTransform.rotation) as GameObject;
+        //CrateItem.AddComponent<BoxCollider>();
+        //crate.AddComponent<AKMPickUp>();
+        //crate.AddComponent<BoxCollider>();
+        //crate.GetComponent<BoxCollider>().isTrigger = true;
+    }
+
+    // Update is called once per frame
+    void Update () {
         UpdateKillCount();
     }
 
