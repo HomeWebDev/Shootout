@@ -153,19 +153,19 @@ public class PlayerHealth : MonoBehaviour {
 
         if (gameObject.tag == "Player1")
         {
-            gameObject.transform.position = new Vector3(9, 0, -9);
+            gameObject.transform.position = new Vector3(13, 0, -13);
         }
         if (gameObject.tag == "Player2")
         {
-            gameObject.transform.position = new Vector3(-9, 0, 9);
+            gameObject.transform.position = new Vector3(-13, 0, 13);
         }
         if (gameObject.tag == "Player3")
         {
-            gameObject.transform.position = new Vector3(-9, 0, -9);
+            gameObject.transform.position = new Vector3(-13, 0, -13);
         }
         if (gameObject.tag == "Player4")
         {
-            gameObject.transform.position = new Vector3(9, 0, 9);
+            gameObject.transform.position = new Vector3(13, 0, 13);
         }
 
         render.enabled = true;
