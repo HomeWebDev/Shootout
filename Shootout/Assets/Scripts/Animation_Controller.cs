@@ -19,6 +19,7 @@ public class Animation_Controller : MonoBehaviour
     public Transform shotSpawn;
     public GameObject shot;
     public GameObject weapon;
+    public Transform weaponSpawn;
 
     private bool firstTime = true;
     private int initLoops = 4;
