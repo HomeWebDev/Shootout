@@ -31,6 +31,7 @@ public class Animation_Controller : MonoBehaviour
         controller = (CharacterController)(GetComponent(typeof(CharacterController)));
         anim = GetComponent<Animation>();
         anim["Take 001"].speed = 3.0f;
+        weapon.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -39,6 +40,7 @@ public class Animation_Controller : MonoBehaviour
         if( weapon!= null)
         {
             if (weapon.tag == "AKM")
+            if (weapon.activeSelf)
             {
                 fireRate = DefaultFirerate / 2;
             }

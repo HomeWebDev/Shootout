@@ -38,6 +38,7 @@ public class CrateController : MonoBehaviour
                 CrateItem.AddComponent<AKMPickUp>();
                 CrateItem.AddComponent<BoxCollider>();
                 CrateItem.GetComponent<BoxCollider>().isTrigger = true;
+                CrateItem.SetActive(true);
             }
 
             //CrateItem.AddComponent<BoundaryDestroy>();

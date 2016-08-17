@@ -7,9 +7,10 @@ public class AKMPickUp : MonoBehaviour {
     {
         if (other.tag == "Player1" && other.name != "Bolt(Clone)")
         {
-            other.GetComponent<Animation_Controller>().weapon = new GameObject();
-            other.GetComponent<Animation_Controller>().weapon.tag = "AKM";
+            //other.GetComponent<Animation_Controller>().weapon = new GameObject();
+            other.GetComponent<Animation_Controller>().weapon.SetActive(true);
             Destroy(gameObject);
+            
         }
     }
 }
