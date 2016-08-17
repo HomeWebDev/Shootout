@@ -48,6 +48,10 @@ public class LoadOnClick : MonoBehaviour
 
             UnityEngine.SceneManagement.SceneManager.LoadScene("IntroScene");
         }
+        else if (sceneName == "ControlsScene")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ControlsScene");
+        }
         else
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("scene4players");

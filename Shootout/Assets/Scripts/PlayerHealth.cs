@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
 
     public int health = 100;
 
@@ -11,15 +12,17 @@ public class PlayerHealth : MonoBehaviour {
     //private Animation_Controller playerMovement;
 
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void ResetHealth()
     {
         //Reset health
@@ -64,7 +67,7 @@ public class PlayerHealth : MonoBehaviour {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("ResultScene");
 
                 //Update score texts
-                UpdateScoreTexts();
+                //UpdateScoreTexts();
 
             }
 
@@ -75,7 +78,7 @@ public class PlayerHealth : MonoBehaviour {
         //PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
         //other.GetComponent<>
 
-        
+
 
         //print("Health reduced by: " + amount);
     }
