@@ -39,7 +39,6 @@ public class Animation_Controller : MonoBehaviour
     {
         if( weapon!= null)
         {
-            if (weapon.tag == "AKM")
             if (weapon.activeSelf)
             {
                 fireRate = DefaultFirerate / 2;
