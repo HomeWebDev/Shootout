@@ -55,7 +55,7 @@ public class ContactDamage : MonoBehaviour {
             CrateController crateDamage = other.GetComponent<CrateController>();
             crateDamage.TakeDamage(other, 1);
         }
-        else if (other.tag == "AKM")
+        else if (other.tag == "AKM" || other.tag == "Shield" || other.tag == "HealthPack")
         {
             Destroy(gameObject);
             return;

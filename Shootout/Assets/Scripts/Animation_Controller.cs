@@ -18,8 +18,8 @@ public class Animation_Controller : MonoBehaviour
 
     public Transform shotSpawn;
     public GameObject shot;
-    public GameObject weapon;
-    public Transform weaponSpawn;
+    public GameObject akm;
+    public GameObject pistol;
 
     private bool firstTime = true;
     private int initLoops = 4;
@@ -31,27 +31,28 @@ public class Animation_Controller : MonoBehaviour
         controller = (CharacterController)(GetComponent(typeof(CharacterController)));
         anim = GetComponent<Animation>();
         anim["Take 001"].speed = 3.0f;
-        weapon.SetActive(false);
+        akm.SetActive(false);
+        pistol.SetActive(true);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if( weapon!= null)
-        {
-            if (weapon.activeSelf)
+        //if( akm!= null)
+        //{
+            if (akm.activeSelf)
             {
                 fireRate = DefaultFirerate / 2;
             }
-            else
+            else if(pistol.activeSelf)
             {
                 fireRate = DefaultFirerate;
             }
-        }
-        else
-        {
-            fireRate = DefaultFirerate;
-        }
+        //}
+        //else
+        //{
+        //    fireRate = DefaultFirerate;
+        //}
         PlayerHealth playerHealth = this.GetComponent<PlayerHealth>();
 
         if (Input.GetButton(fireButton) & Time.time > nextFire & playerHealth.health > 0)

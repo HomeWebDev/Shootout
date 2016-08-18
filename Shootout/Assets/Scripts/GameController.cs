@@ -127,11 +127,11 @@ public class GameController : MonoBehaviour {
             {
                 GameObject crate = Instantiate(crate1, position, crateTransform.rotation) as GameObject;
             }
-            else if (type < 64)
+            else if (type < 55)
             {
                 GameObject crate = Instantiate(crate3, position, crateTransform.rotation) as GameObject;
             }
-            else if (type < 96)
+            else if (type < 80)
             {
                 GameObject crate = Instantiate(crate4, position, crateTransform.rotation) as GameObject;
             }

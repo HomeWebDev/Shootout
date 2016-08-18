@@ -6,15 +6,17 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int health = 100;
+    public int shield = 0;
 
     public Slider healthSlider;
+    public Slider shieldSlider;
 
     //private Animation_Controller playerMovement;
 
     // Use this for initialization
     void Start()
     {
-
+        shieldSlider.value = shield;
     }
 
     // Update is called once per frame
@@ -31,12 +33,36 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = health;
     }
 
+    public void AddHealth(int amount)
+    {
+        int tmp = health + amount;
+        if (health < 100)
+        {
+            health = Mathf.Min(tmp, 100);
+            healthSlider.value = health;
+        }
+    }
+
+    public void AddShield(int amount)
+    {
+        int tmp = shield + amount;
+        if (shield < 50)
+        {
+            shield = Mathf.Min(tmp, 50);
+            shieldSlider.value = shield;
+        }
+    }
+
     public void TakeDamage(Collider other, int amount, GameObject bullet)
     {
-        // Decrement the player's health by amount.
-        health -= amount;
+        // Decrement the player's health or shield by amount.
+        if (shield > 0)
+            shield -= amount;
+        else
+            health -= amount;
 
         healthSlider.value = health;
+        shieldSlider.value = shield;
 
         if (health <= 0)
         {
@@ -171,6 +197,8 @@ public class PlayerHealth : MonoBehaviour
             gameObject.transform.position = new Vector3(13, 0, 13);
         }
 
+        gameObject.GetComponent<Animation_Controller>().pistol.SetActive(true);
+        gameObject.GetComponent<Animation_Controller>().akm.SetActive(false);
         render.enabled = true;
     }
 

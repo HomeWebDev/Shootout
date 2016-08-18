@@ -101,8 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  ItemSpawn: {fileID: 414534, guid: 77e598974fdcc5847be06e8be8ad914d, type: 2}
-  CrateItem: {fileID: 100002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
+  AKMSpawn: {fileID: 414534, guid: 77e598974fdcc5847be06e8be8ad914d, type: 2}
+  ShieldSpawn: {fileID: 442330, guid: 930c6b805ac655b4aa61919dfd9a1123, type: 2}
+  Weapon: {fileID: 100002, guid: 75dcb58506746b84db987c4ce01e99b5, type: 3}
+  HealthPack: {fileID: 186238, guid: 517373bf006dd4225aabc149286a7b69, type: 2}
+  Shield: {fileID: 100002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

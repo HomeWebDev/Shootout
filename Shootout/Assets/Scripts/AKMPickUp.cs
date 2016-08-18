@@ -5,12 +5,11 @@ public class AKMPickUp : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player1" && other.name != "Bolt(Clone)")
+        if (other.name != "Bolt(Clone)")
         {
             //other.GetComponent<Animation_Controller>().weapon = new GameObject();
-            other.GetComponent<Animation_Controller>().weapon.SetActive(true);
+            other.GetComponent<Animation_Controller>().akm.SetActive(true);
             Destroy(gameObject);
-            
         }
     }
 }
