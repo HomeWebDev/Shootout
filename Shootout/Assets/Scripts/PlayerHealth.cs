@@ -2,16 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Class used to handle player health
+/// </summary>
 public class PlayerHealth : MonoBehaviour
 {
-
     public int health = 100;
     public int shield = 0;
 
     public Slider healthSlider;
     public Slider shieldSlider;
-
-    //private Animation_Controller playerMovement;
 
     // Use this for initialization
     void Start()
@@ -19,12 +19,9 @@ public class PlayerHealth : MonoBehaviour
         shieldSlider.value = shield;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// Reset health
+    /// </summary>
     public void ResetHealth()
     {
         //Reset health
@@ -33,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = health;
     }
 
+    /// <summary>
+    /// Add health by amount
+    /// </summary>
+    /// <param name="amount"></param>
     public void AddHealth(int amount)
     {
         int tmp = health + amount;
@@ -43,6 +44,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add shield by amount
+    /// </summary>
+    /// <param name="amount"></param>
     public void AddShield(int amount)
     {
         int tmp = shield + amount;
@@ -53,6 +58,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Let player take damage by amount. If player is killed respawn after 5 seconds
+    /// Also handle update of kill score for player who fired killing bullet
+    /// </summary>
+    /// <param name="other"></param>
+    /// <param name="amount"></param>
+    /// <param name="bullet"></param>
     public void TakeDamage(Collider other, int amount, GameObject bullet)
     {
         // Decrement the player's health or shield by amount.
@@ -67,8 +79,6 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             PlayerKilled();
-
-            //print(bullet.tag);
 
             if (bullet.tag == "Player1")
             {
@@ -91,92 +101,30 @@ public class PlayerHealth : MonoBehaviour
             if (GameController.Player1Kills > 4 | GameController.Player2Kills > 4 | GameController.Player3Kills > 4 | GameController.Player4Kills > 4)
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("ResultScene");
-
-                //Update score texts
-                //UpdateScoreTexts();
-
             }
-
-            //print("Number of kills: " + GameController.Player1Kills);
-        }
-
-
-        //PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        //other.GetComponent<>
-
-
-
-        //print("Health reduced by: " + amount);
-    }
-
-    private void UpdateScoreTexts()
-    {
-        if (GameController.nrOfPlayers == 2)
-        {
-            if (GameController.Player2Kills > GameController.Player1Kills)
-            {
-                GameObject firstPlayerTextGameObject = GameObject.Find("FirstPlayerText");
-                UnityEngine.UI.Text firstPlayerText = firstPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-                firstPlayerText.text = "1. Player 2 with " + GameController.Player2Kills + " kills";
-
-                GameObject secondPlayerTextGameObject = GameObject.Find("SecondPlayerText");
-                UnityEngine.UI.Text secondPlayerText = secondPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-                secondPlayerText.text = "2. Player 1 with " + GameController.Player1Kills + " kills";
-            }
-            else
-            {
-                GameObject firstPlayerTextGameObject = GameObject.Find("FirstPlayerText");
-                UnityEngine.UI.Text firstPlayerText = firstPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-                firstPlayerText.text = "2. Player 1 with " + GameController.Player1Kills + " kills";
-
-                GameObject secondPlayerTextGameObject = GameObject.Find("SecondPlayerText");
-                UnityEngine.UI.Text secondPlayerText = secondPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-                firstPlayerText.text = "1. Player 2 with " + GameController.Player2Kills + " kills";
-            }
-            GameObject thirdPlayerTextGameObject = GameObject.Find("ThirdPlayerText");
-            UnityEngine.UI.Text thirdPlayerText = thirdPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-            thirdPlayerText.text = "";
-
-            GameObject fourthPlayerTextGameObject = GameObject.Find("FourthPlayerText");
-            UnityEngine.UI.Text fourthPlayerText = fourthPlayerTextGameObject.GetComponent<UnityEngine.UI.Text>();
-            fourthPlayerText.text = "";
         }
     }
 
-
+    /// <summary>
+    /// Start reoutine for respawn
+    /// </summary>
     private void PlayerKilled()
     {
-        //Destroy(gameObject);
-
-        //gameObject.SetActive(false);
-
-
-        //GameController gameController = GetComponent<GameController>();
-
-
-
-        //gameController.KillPlayer(2);
-
-
         StartCoroutine(Respawn());
     }
 
-
+    /// <summary>
+    /// Respawn
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Respawn()
     {
-
-        //print("Set inactive:" + Time.time);
-        //gameObject.SetActive(false);
-
         SkinnedMeshRenderer render = gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
 
         render.enabled = false;
         gameObject.transform.position = new Vector3(99, 0, -99);
 
         yield return new WaitForSeconds(5);
-
-        //print("Set active:" + Time.time);
-        //gameObject.SetActive(true);
 
         ResetHealth();
 
@@ -201,9 +149,4 @@ public class PlayerHealth : MonoBehaviour
         gameObject.GetComponent<Animation_Controller>().akm.SetActive(false);
         render.enabled = true;
     }
-
-    //void Awake()
-    //{
-    //    playerMovement = GetComponent<Animation_Controller>();
-    //}
 }

@@ -3,22 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// Class used to handle result scene
+/// </summary>
 public class ResultController : MonoBehaviour {
 
-	// Use this for initialization
+	/// <summary>
+    /// Update score texts on instantialization
+    /// </summary>
 	void Start () {
         UpdateScoreTexts();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+    /// <summary>
+    /// Update score texts
+    /// </summary>
     private void UpdateScoreTexts()
     {
+        //Create dictionary to sort players results
         Dictionary<int, int> dict = new Dictionary<int, int>();
 
+        //Update texts if 2 players
         if (GameController.nrOfPlayers == 2)
         {
             dict.Add(1, GameController.Player1Kills);
@@ -43,6 +48,7 @@ public class ResultController : MonoBehaviour {
             fourthPlayerText.text = "";
         }
 
+        //Update texts if 3 players
         if (GameController.nrOfPlayers == 3)
         {
             dict.Add(1, GameController.Player1Kills);
@@ -68,6 +74,7 @@ public class ResultController : MonoBehaviour {
             fourthPlayerText.text = "";
         }
 
+        //Update texts if 4 players
         if (GameController.nrOfPlayers == 4)
         {
             dict.Add(1, GameController.Player1Kills);

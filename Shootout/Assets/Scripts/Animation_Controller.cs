@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class used to hande player animations and movements
+/// </summary>
 public class Animation_Controller : MonoBehaviour
 {
     Animation anim;
@@ -38,51 +41,35 @@ public class Animation_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //if( akm!= null)
-        //{
-            if (akm.activeSelf)
-            {
-                fireRate = DefaultFirerate / 2;
-            }
-            else if(pistol.activeSelf)
-            {
-                fireRate = DefaultFirerate;
-            }
-        //}
-        //else
-        //{
-        //    fireRate = DefaultFirerate;
-        //}
+        //Set fire rate based on current weapon
+        if (akm.activeSelf)
+        {
+            fireRate = DefaultFirerate / 2;
+        }
+        else if(pistol.activeSelf)
+        {
+            fireRate = DefaultFirerate;
+        }
+
         PlayerHealth playerHealth = this.GetComponent<PlayerHealth>();
 
+        //Use timer to handle when player can shoot, don't allow shots when player is dead
         if (Input.GetButton(fireButton) & Time.time > nextFire & playerHealth.health > 0)
         {
             nextFire = Time.time + fireRate;
 
             shot.tag = this.tag;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-
-            
-
-            //print("Shot: " + shot.tag.ToString());
-
-            //Transform bullet = Instantiate(bulletPrefab) as Transform;
-            //Physics.IgnoreCollision(shot.GetComponent<Collider>(), this.gameObject.GetComponent<Collider>(), false);
-
-            //shot.GetComponent<BulletScript>().IgnoreCollider(GetComponent<Collider>());
         }
 
-
+        //Handle movements based on axises
         float moveV = Input.GetAxis(verticalAxis);
         float moveH = Input.GetAxis(horizontalAxis);
 
         Vector3 movement = new Vector3(moveH, 0.0f, moveV);
-        //Vector3 movement = new Vector3(1.0f, 0.0f, 0.0f);
         movement *= speed;
 
-        //Rigidbody body = GetComponent<Rigidbody>();
-        
-
+        //Play animation if player is moving
         if (moveV != 0 || moveH != 0)
         {
             anim.Play();
@@ -90,40 +77,15 @@ public class Animation_Controller : MonoBehaviour
         else
             anim.Stop();
 
-
-        //body.AddForce(movement * speed * Time.deltaTime);
-
         controller.Move(movement * Time.deltaTime);
 
+        //Handle rotation
         if (movement != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation,
                                  Quaternion.LookRotation(movement),
                                  Time.deltaTime * rotationDamping);
 
-            //print("movement: " + moveV);
         }
-
-        //print("updated");
-
-        //if (firstTime)
-        //{
-        //    movement = new Vector3(0.001f, 0.0f, 0.0f);
-
-        //    controller.Move(movement * Time.deltaTime);
-
-        //    if (movement != Vector3.zero)
-        //    {
-        //        transform.rotation = Quaternion.Slerp(transform.rotation,
-        //                             Quaternion.LookRotation(movement),
-        //                             Time.deltaTime * rotationDamping);
-        //    }
-        //    initLoops--;
-
-        //    if (initLoops < 1)
-        //    {
-        //        firstTime = false;
-        //    }
-        //}
     }
 }

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class used to handle crates
+/// </summary>
 public class CrateController : MonoBehaviour
 {
     public int health = 3;
@@ -24,16 +27,21 @@ public class CrateController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Let crate take damage by amount
+    /// </summary>
+    /// <param name="other"></param>
+    /// <param name="amount"></param>
     public void TakeDamage(Collider other, int amount)
     {
         // Decrement the crates health by amount.
         health -= amount;
         int random;
 
+        //Check if crate was destroyed
         if (health <= 0)
         {
-            //Destroy(gameObject);
-            
+            //If item crate spawn weapon, health pack or sheild
             if (other.tag == "ItemCrate")
             {
                 random = Random.Range(0,100);
@@ -69,7 +77,6 @@ public class CrateController : MonoBehaviour
                 }
             }
 
-            //CrateItem.AddComponent<BoundaryDestroy>();
             Destroy(gameObject);
         }
 
